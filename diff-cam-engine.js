@@ -196,9 +196,9 @@ var DiffCamEngine = (function() {
 				}
 
 			}
-			console.log("score in loop " + score);
+			
 		}
-
+console.log("score is " + score);
 		return {
 			score: score,
 			motionBox: score > scoreThreshold ? motionBox : undefined,
