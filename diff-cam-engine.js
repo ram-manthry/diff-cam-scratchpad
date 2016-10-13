@@ -168,13 +168,11 @@ var DiffCamEngine = (function() {
 
 	function processDiff(diffImageData) {
 		var rgba = diffImageData.data;
-		console.log("diffImageData ");
+		
 		// pixel adjustments are done by reference directly on diffImageData
 		var score = 0;
 		var motionPixels = includeMotionPixels ? [] : undefined;
 		var motionBox = undefined;
-		
-		console.log("rgba length " + rgba.length);
 		
 		for (var i = 0; i < rgba.length; i += 4) {
 			var pixelDiff = rgba[i] * 0.3 + rgba[i + 1] * 0.6 + rgba[i + 2] * 0.1;
@@ -198,7 +196,7 @@ var DiffCamEngine = (function() {
 			}
 			
 		}
-console.log("score is " + score);
+
 		return {
 			score: score,
 			motionBox: score > scoreThreshold ? motionBox : undefined,
