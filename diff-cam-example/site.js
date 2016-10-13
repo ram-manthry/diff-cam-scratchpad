@@ -3,7 +3,7 @@ var canvas = document.getElementById('motion');
 var score = document.getElementById('score');
 var isPoolFree = document.getElementById('isPoolFree');
 var scoreSample = [];
-var timeSetInSec = 30;
+var timeSetInSec = 5;
 var scoreVal;
 
 setInterval(function(){
@@ -30,8 +30,9 @@ function capture(payload) {
 		var scoreAvg = scoreTotal/scoreSample.length;
 		scoreSample = [];
 		score.textContent = scoreAvg;
+		isPoolFree.textContent = scoreAvg > 40 ? 'NO!' : 'YES!';
 	}
-	isPoolFree.textContent = scoreAvg > 40 ? 'NO!' : 'YES!';
+	
 }
 
 DiffCamEngine.init({
