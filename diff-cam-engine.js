@@ -168,7 +168,7 @@ var DiffCamEngine = (function() {
 
 	function processDiff(diffImageData) {
 		var rgba = diffImageData.data;
-		console.log("diffImageData " + diffImageData.data);
+		console.log("diffImageData ");
 		// pixel adjustments are done by reference directly on diffImageData
 		var score = 0;
 		var motionPixels = includeMotionPixels ? [] : undefined;
