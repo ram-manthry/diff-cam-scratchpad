@@ -29,7 +29,7 @@ function capture(payload) {
 		}, this);
 		var scoreAvg = scoreTotal/scoreSample.length;
 		scoreSample = [];
-		score.textContent = scoreAvg;
+		//score.textContent = scoreAvg;
 		isPoolFree.textContent = scoreAvg > 40 ? 'NO!' : 'YES!';
 	}
 	
