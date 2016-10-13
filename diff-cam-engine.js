@@ -72,6 +72,8 @@ var DiffCamEngine = (function() {
 		motionCanvas.width = diffWidth;
 		motionCanvas.height = diffHeight;
 		motionContext = motionCanvas.getContext('2d');
+		
+		console.log("before requestWebcam");
 
 		requestWebcam();
 	}
@@ -166,11 +168,14 @@ var DiffCamEngine = (function() {
 
 	function processDiff(diffImageData) {
 		var rgba = diffImageData.data;
-
+		console.log("diffImageData " + diffImageData.data);
 		// pixel adjustments are done by reference directly on diffImageData
 		var score = 0;
 		var motionPixels = includeMotionPixels ? [] : undefined;
 		var motionBox = undefined;
+		
+		console.log("rgba length " + rgba.length);
+		
 		for (var i = 0; i < rgba.length; i += 4) {
 			var pixelDiff = rgba[i] * 0.3 + rgba[i + 1] * 0.6 + rgba[i + 2] * 0.1;
 			var normalized = Math.min(255, pixelDiff * (255 / pixelDiffThreshold));
@@ -191,6 +196,7 @@ var DiffCamEngine = (function() {
 				}
 
 			}
+			console.log("score in loop " + score);
 		}
 
 		return {
